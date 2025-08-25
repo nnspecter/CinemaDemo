@@ -1,0 +1,24 @@
+.header{
+    display: flex;
+    gap: 10%;
+    padding-top: 10px;
+    justify-content: center;
+    align-items: center;
+    padding-left: 20px;
+    padding-right: 20px;
+    width: 90%;          // растягиваем на всю ширину
+    height: 60px;
+    z-index: 1;
+    position: absolute ;
+    color: white;
+    .headerCategory{
+        display: flex;
+        justify-content: center;
+        gap: 40px;
+        width: 100%;
+    }
+    .headerLogo img{
+        max-width: 60px;
+        filter: drop-shadow(4px 4px 8px rgba(34, 60, 80, 0.2));
+    }
+}

@@ -1,0 +1,8 @@
+/* Глобальные стили (reset) */
+* {
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  box-sizing: border-box; /* чтобы padding и border входили в ширину/высоту */
+}
+
