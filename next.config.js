@@ -1,9 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  output: "export",
+  
 
-  // ❌ Не используем "export", чтобы API роуты работали
-  // output: "export",
 
   eslint: {
     ignoreDuringBuilds: false,
