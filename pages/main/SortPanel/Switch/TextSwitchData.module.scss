@@ -1,0 +1,33 @@
+.TextSwitchData {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  font-size: 18px;
+  cursor: pointer;
+  user-select: none;
+
+  .text {
+    padding: 5px 10px;
+    position: relative;
+    transition: color 0.2s;
+
+    &:hover {
+      color: rgb(204, 91, 91);
+    }
+
+    &.active {
+      color: rgb(233, 59, 59);
+      font-weight: 600;
+
+      &::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        right: 0;
+        height: 2px;
+        background-color: rgb(233, 59, 59);
+      }
+    }
+  }
+}

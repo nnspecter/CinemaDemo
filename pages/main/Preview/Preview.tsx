@@ -26,7 +26,7 @@ const Preview = () => {
       >
         <SwiperSlide>
           <PreviewSlide 
-          imgBackground="/images/preview/previewGradient.png"
+          imgBackground="/images/preview/InterstellarGradient.png"
           year="2023"
           name="Интерстеллар возрождение"
           desc="Сюжет рассказывает о бывшем пилоте НАСА Купере, который вместе с группой исследователей отправляется через червоточину в космос, чтобы найти новый дом для человечества, стоящего на грани вымирания из-за экологической катастрофы на Земле."
