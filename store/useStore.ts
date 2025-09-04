@@ -1,8 +1,7 @@
 import { create } from "zustand";
 
-// Типизация (можно упростить, если без TS)
 interface Movie {
-  id: number;
+  id: number | string;
   name: string;
   genre: string;
   imageLink: string;
@@ -14,13 +13,16 @@ interface State {
   object: { data: Movie[]} | null;
   loading: boolean;
   error: string | null;
+  film: Movie | null;
   loadData: (url: string) => Promise<void>;
+  filteredFilm: (id: number | string) => Promise<void>;
 }
 
-export const useStore = create<State>((set) => ({
+export const useStore = create<State>((set, get) => ({
   object: null,
   loading: false,
   error: null,
+  film: null,
 
   loadData: async (url: string) => {
     set({ loading: true, error: null }); // перед началом запроса
@@ -35,4 +37,18 @@ export const useStore = create<State>((set) => ({
       set({ error: err.message, loading: false });
     }
   },
+  filteredFilm: async (id: number) => {
+  let state = get();
+
+  if (state.object === null) {
+    await state.loadData("/api/cinema/movies"); // ждем загрузку
+    state = get(); // получаем новое состояние
+  }
+
+  if (state.object?.data) {
+    const foundFilm = state.object.data.find(el => el.id === id);
+    set({ film: foundFilm || null });
+  }
+}
+
 }));

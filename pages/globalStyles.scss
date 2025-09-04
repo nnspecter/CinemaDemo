@@ -6,3 +6,11 @@
   box-sizing: border-box; /* чтобы padding и border входили в ширину/высоту */
 }
 
+p,
+a {
+  font-size: 16px;   /* как у p */
+  line-height: 1.5;  /* как у p */
+  color: #ececec;       /* цвет текста */
+  font-family: Arial, sans-serif;
+  text-decoration: none; /* убираем подчёркивание у ссылок */
+}
