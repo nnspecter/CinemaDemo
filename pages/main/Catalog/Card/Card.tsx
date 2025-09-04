@@ -24,7 +24,7 @@ const FilmCard = ({id, name, imageUrl, duration, sessions}) => {
             </div>
         </div>
         <div className={styles.cardSessions}>
-          {sessions.map((el)=>(
+          {sessions?.map((el)=>(
             <div key={el.id} className={handleTime(el.time) ? styles.yesTime : styles.noTime} >
               {el.time}
             </div>
