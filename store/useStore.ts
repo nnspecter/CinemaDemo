@@ -7,6 +7,7 @@ interface Movie {
   imageLink: string;
   duration: string;
   year: number;
+  sessions: any
 }
 
 interface State {
@@ -16,6 +17,7 @@ interface State {
   film: Movie | null;
   loadData: (url: string) => Promise<void>;
   filteredFilm: (id: number | string) => Promise<void>;
+  handleTime: (time: string) => boolean;
 }
 
 export const useStore = create<State>((set, get) => ({
@@ -49,6 +51,15 @@ export const useStore = create<State>((set, get) => ({
     const foundFilm = state.object.data.find(el => el.id === id);
     set({ film: foundFilm || null });
   }
+},
+handleTime: (time: string) => {
+  const[hours, minutes] = time.split(":").map(Number)
+  const nowH = new Date().getHours()
+  const nowM = new Date().getMinutes();
+  if(nowH <= hours && nowM < minutes+10){
+    return true
+  }
+  return false
 }
 
 }));
