@@ -1,35 +1,31 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./filmPropertyes.module.scss"
 import { useStore } from "../../../store/useStore";
+import Image from 'next/image';
 
 
-const FilmPropertyes = ({id}) => {
-    const { object, loading, error, film, loadData, filteredFilm } = useStore();
-  
-    const idNum = Number(id);
+const FilmPropertyes = () => {
+    const {film} = useStore();
+    if (film === null) return(<></>)
 
-  useEffect(() => {
-    if (!Number.isFinite(idNum)) return; // нет валидного id — ничего не делаем
-    filteredFilm(idNum); // не нужно await — zustand сам дернёт set и вызовет ререндер
-  }, [idNum, filteredFilm]);
-
-  useEffect(() => {
-    // этот лог сработает, когда film обновится
-    if (film) console.log("Нашли фильм:", film);
-  }, [film]);
-
-
-  if (loading) return <div>Загрузка...</div>;
-  if (error) return <div>Ошибка: {error}</div>;
 
     
   return (
     <div className={styles.filmPropertyes}>
         <div className={styles.block1}>
-            
+            <img src={`${film.imageLink}`} alt=''/>
         </div>
         <div className={styles.block2}>
-            
+          <div className={styles.name}>{film.name}</div>
+          <div className={styles.year}><h3>Год выпуска: </h3> {film.year}</div>
+          <div className={styles.genre}><h3>Жанры: </h3> {film.genre}</div> 
+          <div className={styles.duration}>
+            <h3>Продолжительность: </h3> {Math.round(film.duration / 60)} часа { film.duration % 60 > 5 && `${film.duration % 60} минут`}
+          </div>
+          <div className={styles.description}>
+            <h3>Описание: </h3> {film.description}
+          </div>
+        
         </div>
     </div>
   )

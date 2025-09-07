@@ -14,3 +14,10 @@ a {
   font-family: Arial, sans-serif;
   text-decoration: none; /* убираем подчёркивание у ссылок */
 }
+.Loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 100%;
+  padding-top: 100px;
+}

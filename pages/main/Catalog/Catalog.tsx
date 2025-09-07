@@ -3,6 +3,7 @@ import styles from "./Catalog.module.scss";
 import FilmCard from "./Card/Card";
 import { useStore } from "../../../store/useStore";
 import Link from "next/link";
+import Loading from "../../loading/Loading";
 
 const Catalog = () => {
   const { object, loading, error, loadData } = useStore();
@@ -11,7 +12,7 @@ const Catalog = () => {
       loadData("https://bush-cinema.onrender.com/api/cinema/movies")
   }, [loadData])
 
-  if (loading) return <p>Загрузка...</p>;
+  if (loading) return <div className="Loading"><Loading/></div>;
   if (error) return <p>Ошибка: {error}</p>;
     return (
         <div className={styles.catalog}>

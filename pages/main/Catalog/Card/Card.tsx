@@ -2,6 +2,7 @@ import React from 'react'
 import styles from "./FilmCard.module.scss"
 import Link from 'next/link';
 import { useStore } from '../../../../store/useStore';
+import { Button } from '@mui/material';
 
 interface FilmCardProps {
   name: string;
@@ -19,8 +20,9 @@ const FilmCard = ({id, name, imageUrl, duration, sessions}) => {
             <div className={styles.cardOverlay}>
                 {name}
                 <div className={styles.duration}>
-                  {Math.round(duration / 60)} часа {duration % 60} минут
+                  {Math.round(duration / 60)} часа { duration % 60 > 5 &&`${duration % 60} минут`}
                 </div>
+                <Button variant="contained" href={`/film/${id}`}>Купить билеты</Button>
             </div>
         </div>
         <div className={styles.cardSessions}>

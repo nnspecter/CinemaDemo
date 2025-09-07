@@ -5,9 +5,10 @@ interface Movie {
   name: string;
   genre: string;
   imageLink: string;
-  duration: string;
+  duration: number;
   year: number;
   sessions: any
+  description: string;
 }
 
 interface State {
@@ -16,8 +17,8 @@ interface State {
   error: string | null;
   film: Movie | null;
   loadData: (url: string) => Promise<void>;
-  filteredFilm: (id: number | string) => Promise<void>;
   handleTime: (time: string) => boolean;
+  updateFilm: (data: Movie) => void
 }
 
 export const useStore = create<State>((set, get) => ({
@@ -39,27 +40,17 @@ export const useStore = create<State>((set, get) => ({
       set({ error: err.message, loading: false });
     }
   },
-  filteredFilm: async (id: number) => {
-  let state = get();
-
-  if (state.object === null) {
-    await state.loadData("/api/cinema/movies"); // ждем загрузку
-    state = get(); // получаем новое состояние
-  }
-
-  if (state.object?.data) {
-    const foundFilm = state.object.data.find(el => el.id === id);
-    set({ film: foundFilm || null });
-  }
-},
 handleTime: (time: string) => {
   const[hours, minutes] = time.split(":").map(Number)
   const nowH = new Date().getHours()
   const nowM = new Date().getMinutes();
-  if(nowH <= hours && nowM < minutes+10){
+  if(nowH <= hours){
     return true
   }
   return false
+},
+updateFilm: (data: Movie) =>{
+  set({film: data})
 }
 
 }));

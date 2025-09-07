@@ -1,11 +1,14 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-
-
-  eslint: {
-    ignoreDuringBuilds: false,
-  },
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "i.ibb.co.com", // ✅ добавляем домен
+      },
+    ],
+  }
 }
 
 module.exports = nextConfig

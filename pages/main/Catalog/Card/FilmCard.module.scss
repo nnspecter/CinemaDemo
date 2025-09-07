@@ -37,7 +37,12 @@
             border-radius: 10px;
             text-align: center;
             flex-direction: column;
-            gap: 10px
+            gap: 10px;
+            button{
+                padding: 5px;
+                font-size: 12pt;
+                background-color: green;
+            }
         }
         &:hover .cardOverlay{
             opacity: 1;
