@@ -22,7 +22,7 @@ const FilmCard = ({id, name, imageUrl, duration, sessions}) => {
                 <div className={styles.duration}>
                   {Math.round(duration / 60)} часа { duration % 60 > 5 &&`${duration % 60} минут`}
                 </div>
-                <Button variant="contained" href={`CinemaDemo/film/${id}`}>Купить билеты</Button>
+                <Button variant="contained" href={`/CinemaDemo/film/${id}`}>Купить билеты</Button>
             </div>
         </div>
         <div className={styles.cardSessions}>
