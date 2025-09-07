@@ -12,7 +12,6 @@ interface FilmCardProps {
 const FilmCard = ({id, name, imageUrl, duration, sessions}) => {
   const {handleTime} = useStore()
   const now = new Date().toLocaleTimeString();
-  console.log(now)
   return (
     <div className={styles.card}>
         <div className={styles.cardPoster}>
@@ -22,7 +21,9 @@ const FilmCard = ({id, name, imageUrl, duration, sessions}) => {
                 <div className={styles.duration}>
                   {Math.round(duration / 60)} часа { duration % 60 > 5 &&`${duration % 60} минут`}
                 </div>
-                <Button variant="contained" href={`/CinemaDemo/film/${id}`}>Купить билеты</Button>
+                <Link href={`/film/${id}`} passHref>
+                <Button variant="contained">Купить билеты</Button>
+                </Link>
             </div>
         </div>
         <div className={styles.cardSessions}>
