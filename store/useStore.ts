@@ -15,17 +15,14 @@ interface State {
   object: { data: Movie[]} | null;
   loading: boolean;
   error: string | null;
-  film: Movie | null;
   loadData: (url: string) => Promise<void>;
   handleTime: (time: string) => boolean;
-  updateFilm: (data: Movie) => void
 }
 
 export const useStore = create<State>((set, get) => ({
   object: null,
   loading: false,
   error: null,
-  film: null,
 
   loadData: async (url: string) => {
     set({ loading: true, error: null }); // перед началом запроса
@@ -49,8 +46,6 @@ handleTime: (time: string) => {
   }
   return false
 },
-updateFilm: (data: Movie) =>{
-  set({film: data})
-}
+
 
 }));

@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./filmPropertyes.module.scss"
-import { useStore } from "../../../store/useStore";
+import { useFilmStore } from "../../../store/useFilmStore";
 import Image from 'next/image';
 
 
 const FilmPropertyes = () => {
-    const {film} = useStore();
+    const {film} = useFilmStore();
     if (film === null) return(<></>)
 
 
