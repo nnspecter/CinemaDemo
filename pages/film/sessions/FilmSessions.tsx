@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./FilmSessions.module.scss"
 import { ToggleButton, ToggleButtonGroup } from '@mui/material';
-import { WhiteToggleButton } from './button/WhiteToggleButton';
+import { WhiteToggleButton } from '../../../ui/button/WhiteToggleButton';
 import { useFilmStore } from '../../../store/useFilmStore';
 import { useSeansStore } from '../../../store/useSeansStore';
 import Loading from '../../loading/Loading';
