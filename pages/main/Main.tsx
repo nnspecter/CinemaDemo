@@ -1,9 +1,9 @@
 import React from 'react'
-import Preview from './Preview/Preview'
-import Header from '../header/Header'
+import Preview from '../../ui/Preview/Preview'
+import Header from '../../ui/header/Header'
 import styles from "./Main.module.scss"
-import Sort from './SortPanel/Sort'
-import Catalog from './Catalog/Catalog'
+import Sort from '../../ui/SortPanel/Sort'
+import Catalog from '../../ui/Catalog/Catalog'
 import { Provider } from 'react-redux'
 const Main = () => {
   return (

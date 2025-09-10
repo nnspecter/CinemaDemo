@@ -1,6 +1,6 @@
 import React from 'react'
-import { useSeansStore } from '../../../../store/useSeansStore';
-import Loading from '../../../loading/Loading';
+import { useSeansStore } from '../../../store/useSeansStore';
+import Loading from '../../loading/Loading';
 
 const Seans = () => {
   const {sits, loading, error} = useSeansStore();

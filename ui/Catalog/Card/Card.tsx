@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from "./FilmCard.module.scss"
 import Link from 'next/link';
-import { useStore } from '../../../../store/useStore';
+import { useStore } from '../../../store/useStore';
 import { Button } from '@mui/material';
 
 interface FilmCardProps {

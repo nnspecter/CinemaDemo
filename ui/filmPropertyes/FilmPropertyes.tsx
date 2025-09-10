@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./filmPropertyes.module.scss"
-import { useFilmStore } from "../../../store/useFilmStore";
+import { useFilmStore } from "../../store/useFilmStore";
 import Image from 'next/image';
 
 

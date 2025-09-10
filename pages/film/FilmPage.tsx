@@ -4,9 +4,9 @@ import axios from "axios";
 import Image from "next/image";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
-import FilmPropertyes from "./filmPropertyes/FilmPropertyes";
-import Loading from "../loading/Loading";
-import FilmSessions from "./sessions/FilmSessions";
+import FilmPropertyes from "../../ui/filmPropertyes/FilmPropertyes";
+import Loading from "../../ui/loading/Loading";
+import FilmSessions from "../../ui/sessions/FilmSessions";
 import { useFilmStore } from "../../store/useFilmStore";
 
 

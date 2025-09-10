@@ -2,15 +2,18 @@
     display: flex;
     gap: 10%;
     padding-top: 10px;
+    padding-bottom: 10px;
     justify-content: center;
     align-items: center;
     padding-left: 20px;
     padding-right: 20px;
-    width: 90%;          // растягиваем на всю ширину
+    width: 100%;          // растягиваем на всю ширину
     height: 60px;
-    z-index: 1;
-    position: absolute ;
+    z-index: 100;
+    position: fixed; 
     color: white;
+    background: rgba(0, 0, 0, 0);
+    transition: background-color 1s ease;
     .headerCategory{
         display: flex;
         justify-content: center;
@@ -21,4 +24,8 @@
         max-width: 60px;
         filter: drop-shadow(4px 4px 8px rgba(34, 60, 80, 0.2));
     }
+}
+.scrolled {
+  background: rgba(0, 0, 0, 0.8); // появляется при скролле
+  transition: background-color 1s ease;
 }

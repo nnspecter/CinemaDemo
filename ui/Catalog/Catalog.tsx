@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styles from "./Catalog.module.scss";
 import FilmCard from "./Card/Card";
-import { useStore } from "../../../store/useStore";
+import { useStore } from "../../store/useStore";
 import Link from "next/link";
-import Loading from "../../loading/Loading";
+import Loading from "../loading/Loading";
 
 const Catalog = () => {
   const { object, loading, error, loadData } = useStore();
