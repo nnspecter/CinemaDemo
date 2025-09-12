@@ -24,7 +24,6 @@ const NewsSlide: React.FC<PreviewSlideProps> = ({imgBackground, name, desc, img}
             />
         </div>
         <div className={styles.onImageBlock}>
-            <img src={img} alt="KAPTINKA"></img>
             <div className={styles.text}>
                 <h1>{name}</h1>
                 <p>{desc}</p>
