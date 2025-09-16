@@ -29,3 +29,7 @@
   background: rgba(0, 0, 0, 0.8); // появляется при скролле
   transition: background-color 1s ease;
 }
+.active{
+    text-decoration: underline;
+    color: red;
+}

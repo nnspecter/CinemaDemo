@@ -10,10 +10,17 @@ const Main = () => {
   return (
     <div className={styles.main}>
         <Header/>
-        <Preview/>
-        <Sort/>
-        <Catalog/>
-        <News/>
+        <section id="main">
+          <Preview/>
+          <Sort/>
+          <Catalog/>
+        </section>
+        <section id="news">
+            <News/>
+        </section>
+        <section id="socials">
+
+        </section>
         
         
     </div>

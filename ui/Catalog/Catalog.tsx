@@ -12,13 +12,13 @@ const Catalog = () => {
       loadData("https://bush-cinema.onrender.com/api/cinema/movies")
   }, [loadData])
 
-  if (loading) return <div className="Loading"><Loading/></div>;
+  if (loading) return <div className="Loading"><Loading/>Загрузка...</div>;
   if (error) return <p>Ошибка: {error}</p>;
     return (
         <div className={styles.catalog}>
           {object != null && object.data.map((el)=>(
             <div key={`баннер - ${el.id}`}>
-                <FilmCard id={el.id} name={el.name} imageUrl={el.imageLink} duration={el.duration} sessions={el.sessions}/>
+                <FilmCard id={el.id} name={el.name} imageUrl={el.imageLink} duration={el.duration} sessions={el.sessions} description={el.description}/>
             </div>
           ))}
           

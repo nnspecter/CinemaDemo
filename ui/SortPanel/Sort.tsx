@@ -9,7 +9,7 @@ function Sort() {
       <img src="images/Sort/AbstractBack.jpg"></img>
       <div className={styles.sortPanel}>
           <div className={styles.sortLeft}>
-            <CustomizedHook/>
+            
           </div>
           <div className={styles.sortRight}>
             <TextSwitchData/>

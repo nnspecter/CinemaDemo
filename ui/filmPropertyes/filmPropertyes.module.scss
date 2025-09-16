@@ -1,11 +1,13 @@
-.filmPropertyes{
+.filmPropertyesContent{
     display: flex;
+    position: relative;
     justify-content: flex-start;
     gap: 20px;
     padding-top: 10px;
     padding-left: 2%;
     padding-right: 2%;
     height: 340px;
+    width: 100%;
     .block1{
         img{
             max-width: 240px;
@@ -48,3 +50,17 @@
     }
     
 }
+
+.imgBackground {
+        
+        img{
+            max-height: 340px; 
+            position: absolute;
+            z-index: -3;
+            width: 100%;
+            object-fit: cover;      /* картинка зальёт весь блок */
+            background-position: center; /* центрируем */
+            background-repeat: no-repeat; /* без повторов */
+            opacity: 0.6;      
+        }
+    }
