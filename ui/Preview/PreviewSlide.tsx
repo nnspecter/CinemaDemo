@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from "./PreviewSlide.module.scss"
+import { useBasePath } from '../../hooks/useBasePath';
 
 interface PreviewSlideProps {
   imgBackground: string; // путь к фону
@@ -12,12 +13,13 @@ interface PreviewSlideProps {
 
 
 const PreviewSlide: React.FC<PreviewSlideProps> = ({imgBackground, year, name, desc, poster}) => {
+  const prefix = useBasePath();
   return (
     <div className={styles.previewSlide}>
     
         <div className={styles.prewiewImage}>
             <Image
-            src={imgBackground}
+            src={`${prefix}${imgBackground}`}
             alt='Back'
             fill
             priority
@@ -30,7 +32,7 @@ const PreviewSlide: React.FC<PreviewSlideProps> = ({imgBackground, year, name, d
                 <h1>{name}</h1>
                 <p>{desc}</p>
             </div>
-            <img src={poster} alt="KAPTINKA"></img>
+            <img src={`${prefix}${poster}`} alt="KAPTINKA"></img>
         </div>
     </div>
   )
