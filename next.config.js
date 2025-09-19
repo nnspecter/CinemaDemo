@@ -3,19 +3,12 @@ const isProd = process.env.NODE_ENV === 'production'
 
 const nextConfig = {
   reactStrictMode: true,
-  basePath: '/CinemaDemo',
+  output: 'export',
+  basePath: isProd ? '/CinemaDemo' : '',
+  assetPrefix: isProd ? '/CinemaDemo/' : '',
   images: {
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "i.ibb.com",
-      },
-    ],
-    unoptimized: true, // для GitHub Pages
+    unoptimized: true,
   },
-  output: 'export', // экспорт статического билда
-  basePath: isProd ? '/CinemaDemo' : '', // ⚡ замени repo-name на имя репозитория
-  assetPrefix: isProd ? '/CinemaDemo/' : '', // чтобы пути к ассетам были правильные
 }
 
 module.exports = nextConfig
