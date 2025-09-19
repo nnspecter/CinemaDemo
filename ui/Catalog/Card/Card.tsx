@@ -5,14 +5,14 @@ import { useStore } from '../../../store/useStore';
 import { Button } from '@mui/material';
 
 
-const FilmCard = ({id, name, imageUrl, duration, sessions, description}) => {
+const FilmCard = ({id, name, posterUrlPreview, duration, sessions, description}) => {
   const {handleTime} = useStore()
   const now = new Date().toLocaleTimeString();
 
   return (
     <div className={styles.card}>
         <div className={styles.cardPoster}>
-            <img src={imageUrl}></img>
+            <img src={posterUrlPreview}></img>
             <div className={styles.cardOverlay}>
                 <div className={styles.description}>
                   {description}

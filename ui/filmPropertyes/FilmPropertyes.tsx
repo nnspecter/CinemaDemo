@@ -13,11 +13,11 @@ const FilmPropertyes = () => {
   return (
     <div className={styles.filmPropertyes}>
       <div className={styles.imgBackground}>
-          <img src="/images/preview/AlienGradient.png"/>
+          <img src={film.posterUrl}/>
         </div>
       <div className={styles.filmPropertyesContent}>
           <div className={styles.block1}>
-              <img src={`${film.imageLink}`} alt=''/>
+              <img src={`${film.posterUrlPreview}`} alt=''/>
           </div>
           <div className={styles.block2}>
             <div className={styles.name}>{film.name}</div>

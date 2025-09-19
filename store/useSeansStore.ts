@@ -4,15 +4,18 @@ import { create } from "zustand";
 interface Seans{
     loading: boolean,
     error: string | null,
-    sits: Sits[] | null,
-    getSeans: (id: number) => Promise<void>
+    sits: Sits[][] | null,
+    getSeans: (id: number) => Promise<void>,
+    clearSeans: () => void
 }
+
 interface Sits{
     id: string,
     col: number,
     row: number,
     state: string
 }
+
 export const useSeansStore = create<Seans>((set)=>({
     loading: false,
     error: null,
@@ -28,5 +31,8 @@ export const useSeansStore = create<Seans>((set)=>({
         catch(err: any){
             set({sits: null, error: err.message, loading: false})
         }
+    },
+    clearSeans: () => {
+        set({sits: null})
     }
 }))

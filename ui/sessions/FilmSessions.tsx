@@ -6,6 +6,8 @@ import { useFilmStore } from '../../store/useFilmStore';
 import { useSeansStore } from '../../store/useSeansStore';
 import Loading from '../loading/Loading';
 import Seans from './seans/Seans';
+import SeansButton from './seans/seansButton/SeansButton';
+import SubmitButton from './submitButton/SubmitButton';
 const FilmSessions = () => {
     const [sessionId, setSessionId] = useState(1);
     const {film} = useFilmStore();
@@ -14,6 +16,7 @@ const FilmSessions = () => {
 
       useEffect(()=>{
         getSeans(film.sessions[0].id);
+        
       }, [film]);
 
     const handleAlignment = (
@@ -29,7 +32,7 @@ const FilmSessions = () => {
 
     
   return (
-    <div>
+    <div className={styles.sessions}>
          <ToggleButtonGroup
             value={sessionId}
             exclusive
@@ -44,7 +47,7 @@ const FilmSessions = () => {
          </ToggleButtonGroup>
          
          <Seans/>
-         
+         <SubmitButton/>
     </div>
   )
 }

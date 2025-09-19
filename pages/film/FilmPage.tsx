@@ -8,6 +8,7 @@ import FilmPropertyes from "../../ui/filmPropertyes/FilmPropertyes";
 import Loading from "../../ui/loading/Loading";
 import FilmSessions from "../../ui/sessions/FilmSessions";
 import { useFilmStore } from "../../store/useFilmStore";
+import { useSeansStore } from "../../store/useSeansStore";
 
 
 const FilmPage = () => {
@@ -16,12 +17,19 @@ const FilmPage = () => {
     const intId = idParam ? parseInt(Array.isArray(idParam) ? idParam[0] : idParam) : null;
 
 
-    const {loadFilm, film} = useFilmStore();
+    const {clearFilm, loadFilm, film} = useFilmStore();
+    const {clearSeans} = useSeansStore();
+
+    useEffect(()=>{
+      return()=>{
+        clearFilm()
+        clearSeans()
+      }
+    }, [])
 
     useEffect(()=>{
       if (!intId) return
-      loadFilm(intId)
-      
+      loadFilm(intId);
     }, [intId]);
 
 

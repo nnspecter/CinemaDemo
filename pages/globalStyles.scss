@@ -27,7 +27,7 @@ a {
   font-family: Arial, sans-serif;
   text-decoration: none; /* убираем подчёркивание у ссылок */
 }
-.Loading{
+.Loading, .loadingLow{
   display: flex;
   justify-content: center;
   align-items: center;
@@ -36,6 +36,10 @@ a {
   padding-top: 100px;
   padding-bottom: 100px;
   gap: 5px
+}
+.loadingLow{
+  padding-bottom: 25px;
+  padding-top: 25px;
 }
 body{
   background-color: rgb(37, 37, 37);
