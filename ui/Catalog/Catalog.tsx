@@ -18,7 +18,7 @@ const Catalog = () => {
         <div className={styles.catalog}>
           {object != null && object.data.map((el)=>(
             <div key={`баннер - ${el.id}`}>
-                <FilmCard id={el.id} name={el.name} posterUrlPreview={el.posterUrlPreview} duration={el.duration} sessions={el.sessions} description={el.description}/>
+                <FilmCard id={el.id} name={el.name} posterUrlPreview={el.posterUrlPreview} posterUrl={el.posterUrl} duration={el.duration} sessions={el.sessions} description={el.description}/>
             </div>
           ))}
           

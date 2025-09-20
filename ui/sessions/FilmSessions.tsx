@@ -9,13 +9,18 @@ import Seans from './seans/Seans';
 import SeansButton from './seans/seansButton/SeansButton';
 import SubmitButton from './submitButton/SubmitButton';
 const FilmSessions = () => {
-    const [sessionId, setSessionId] = useState(1);
+    const [sessionId, setSessionId] = useState<number | null>(null);
     const {film} = useFilmStore();
     const {loading, getSeans} = useSeansStore();
     if (film === null) return(<></>)
 
       useEffect(()=>{
-        getSeans(film.sessions[0].id);
+        if(film.sessions){
+          console.log(1)
+          setSessionId(film.sessions[0].id);
+          getSeans(film.sessions[0].id);
+        }
+        
         
       }, [film]);
 

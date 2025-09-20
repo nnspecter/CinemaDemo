@@ -3,16 +3,18 @@ import styles from "./FilmCard.module.scss"
 import Link from 'next/link';
 import { useStore } from '../../../store/useStore';
 import { Button } from '@mui/material';
+import Image from 'next/image';
 
 
-const FilmCard = ({id, name, posterUrlPreview, duration, sessions, description}) => {
+const FilmCard = ({id, name, posterUrlPreview, duration, sessions, description, posterUrl}) => {
   const {handleTime} = useStore()
   const now = new Date().toLocaleTimeString();
-
+  
+  
   return (
     <div className={styles.card}>
         <div className={styles.cardPoster}>
-            <img src={posterUrlPreview}></img>
+            <Image src={posterUrlPreview ?? posterUrl} width={200} height={300}alt=""/>
             <div className={styles.cardOverlay}>
                 <div className={styles.description}>
                   {description}

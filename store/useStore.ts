@@ -4,7 +4,8 @@ interface Movie {
   id: number | string;
   name: string;
   genre: string;
-  posterUrlPreview: string;
+  posterUrlPreview: string | null;
+  posterUrl: string;
   duration: number;
   year: number;
   sessions: any

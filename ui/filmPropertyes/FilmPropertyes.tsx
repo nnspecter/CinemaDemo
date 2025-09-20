@@ -6,8 +6,7 @@ import Image from 'next/image';
 
 const FilmPropertyes = () => {
     const {film} = useFilmStore();
-    if (film === null) return(<></>)
-
+    if (film === null) return(<></>)  
 
     
   return (
@@ -17,7 +16,7 @@ const FilmPropertyes = () => {
         </div>
       <div className={styles.filmPropertyesContent}>
           <div className={styles.block1}>
-              <img src={`${film.posterUrlPreview}`} alt=''/>
+              <img src={`${film.posterUrlPreview ?? film.posterUrl}`} alt=''/>
           </div>
           <div className={styles.block2}>
             <div className={styles.name}>{film.name}</div>
