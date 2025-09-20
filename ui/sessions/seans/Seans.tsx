@@ -15,7 +15,7 @@ const Seans = () => {
     <div className={styles.row} key={`row-${rowIndex}`}>
       {row.map((sit) => (
         <div key={sit.id} className={styles.col}>
-          <SeansButton state={sit.state}/>
+          <SeansButton state={sit.state} id={sit.id}/>
         </div>
       ))}
     </div>

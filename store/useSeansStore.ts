@@ -6,14 +6,17 @@ interface Seans{
     error: string | null,
     sits: Sits[][] | null,
     getSeans: (id: number) => Promise<void>,
-    clearSeans: () => void
+    clearSeans: () => void,
+    handleReserve: (id: string) => Promise<void>,
+    handleUnReserve: (id: string) => Promise<void>,
+    handleOrder: () => Promise<void>,
 }
 
 interface Sits{
     id: string,
     col: number,
     row: number,
-    state: string
+    state: "FREE" | "TAKEN" | "BOOKED" | "IN_CART",
 }
 
 export const useSeansStore = create<Seans>((set)=>({
@@ -34,5 +37,34 @@ export const useSeansStore = create<Seans>((set)=>({
     },
     clearSeans: () => {
         set({sits: null})
+    },
+    handleReserve: async (id: string) => {
+        try{
+            const response = axios.post("https://bush-cinema.onrender.com/api/cinema/sit/reserve", {
+                id
+            });
+            console.log("Ответ сервера post", response);
+        }
+        catch(err){
+            console.error("Ошибка handleReserve: ", err)
+        }
+    },
+    handleUnReserve: async (id: string) => {
+        try{
+            const response = axios.delete(`https://bush-cinema.onrender.com/api/cinema/sit/cancel/${id}`)
+            console.log("Ответ сервера delete", response);
+        }
+        catch(err){
+            console.error("Ошибка handleUnReserve: ", err)
+        }
+    },
+    handleOrder: async()=>{
+        try{
+            const response = axios.post("https://bush-cinema.onrender.com/api/cinema/post/order");
+            console.log("отправлено")
+        }
+        catch(err){
+            console.log("Ошибка при покупке", err)
+        }
     }
 }))
