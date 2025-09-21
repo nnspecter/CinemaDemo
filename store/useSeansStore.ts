@@ -2,6 +2,7 @@ import axios from "axios";
 import { error } from "console";
 import { create } from "zustand";
 interface Seans{
+    seansID: number | null,
     loading: boolean,
     error: string | null,
     sits: Sits[][] | null,
@@ -20,6 +21,7 @@ interface Sits{
 }
 
 export const useSeansStore = create<Seans>((set)=>({
+    seansID: null,
     loading: false,
     error: null,
     sits: null,
@@ -27,9 +29,10 @@ export const useSeansStore = create<Seans>((set)=>({
         try{
             set({loading: true, error: null, sits: null})
             const response = await axios.get(
-                `https://bush-cinema.onrender.com/api/cinema/session/${id}`
+                `https://bush-cinema.onrender.com/api/cinema/session/${id}`,
+                { withCredentials: true }
             )
-            set({sits: response.data.data.sits, loading: false, error: null})
+            set({sits: response.data.data.sits, loading: false, error: null, seansID: response.data.data.id})
         }
         catch(err: any){
             set({sits: null, error: err.message, loading: false})
@@ -40,8 +43,11 @@ export const useSeansStore = create<Seans>((set)=>({
     },
     handleReserve: async (id: string) => {
         try{
-            const response = axios.post("https://bush-cinema.onrender.com/api/cinema/sit/reserve", {
+            const response = await axios.post("https://bush-cinema.onrender.com/api/cinema/sit/reserve", {
                 id
+            },
+            {  
+                withCredentials: true 
             });
             console.log("Ответ сервера post", response);
         }
@@ -51,7 +57,9 @@ export const useSeansStore = create<Seans>((set)=>({
     },
     handleUnReserve: async (id: string) => {
         try{
-            const response = axios.delete(`https://bush-cinema.onrender.com/api/cinema/sit/cancel/${id}`)
+            const response = await axios.delete(`https://bush-cinema.onrender.com/api/cinema/sit/cancel/${id}`,
+                { withCredentials: true },
+            )
             console.log("Ответ сервера delete", response);
         }
         catch(err){
@@ -60,7 +68,9 @@ export const useSeansStore = create<Seans>((set)=>({
     },
     handleOrder: async()=>{
         try{
-            const response = axios.post("https://bush-cinema.onrender.com/api/cinema/post/order");
+            const response = await axios.post("https://bush-cinema.onrender.com/api/cinema/post/order",
+                { withCredentials: true },
+            );
             console.log("отправлено")
         }
         catch(err){
