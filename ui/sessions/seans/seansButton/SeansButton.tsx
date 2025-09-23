@@ -40,9 +40,12 @@ const SeansButton = ({ state, id }: SeansButtonProps) => {
     <div className={styles.button}>
       <Checkbox
         icon={
-          state === "TAKEN" ? (
-            <Image src={`${prefix}/images/sessions/unactive.png`} width={80} height={80} alt="" />
-          ) : (
+          (state === "TAKEN" || state === "BOOKED") ? (
+            (state === "BOOKED" ) ? (
+              <Image src={`${prefix}/images/sessions/unactive.png`} width={80} height={80} alt="" />
+            ) : (
+              <Image src={`${prefix}/images/sessions/yourPlace.png`} width={80} height={80} alt="" />
+            )) : (
             <Image src={`${prefix}/images/sessions/active.png`} width={80} height={80} alt="" />
           )
         }

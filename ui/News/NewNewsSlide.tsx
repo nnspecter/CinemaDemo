@@ -1,6 +1,7 @@
 import React from 'react'
 import Image from 'next/image'
 import styles from "./NewNewsSlide.module.scss"
+import { useBasePath } from '../../hooks/useBasePath';
 
 interface PreviewSlideProps {
   imgBackground: string; // путь к фону
@@ -11,12 +12,14 @@ interface PreviewSlideProps {
 
 
 const NewsSlide: React.FC<PreviewSlideProps> = ({imgBackground, name, desc, img}) => {
+  const prefix = useBasePath();
+  
   return (
     <div className={styles.newsSlide}>
     
         <div className={styles.prewiewImage}>
             <Image
-            src={imgBackground}
+            src={`${prefix} ${imgBackground}`}
             alt='Back'
             fill
             priority
