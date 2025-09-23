@@ -40,11 +40,11 @@ const SeansButton = ({ state, id }: SeansButtonProps) => {
     <div className={styles.button}>
       <Checkbox
         icon={
-          (state === "TAKEN" || state === "BOOKED") ? (
+          (state === "TAKEN" || state === "BOOKED" ) ? (
             (state === "BOOKED" ) ? (
               <Image src={`${prefix}/images/sessions/unactive.png`} width={80} height={80} alt="" />
             ) : (
-              <Image src={`${prefix}/images/sessions/yourPlace.png`} width={80} height={80} alt="" />
+              <Image src={`${prefix}/images/sessions/unactive.png`} width={80} height={80} alt="" />
             )) : (
             <Image src={`${prefix}/images/sessions/active.png`} width={80} height={80} alt="" />
           )
@@ -54,8 +54,8 @@ const SeansButton = ({ state, id }: SeansButtonProps) => {
         }
         color="success"
         sx={{ p: 0, m: 0 }}
-        disabled={state === "TAKEN" || loading} // блокируем если место занято или идёт запрос
-        checked={state === "BOOKED" || state === "IN_CART"} // состояние зависит только от сервера
+        disabled={state === "TAKEN" || loading || state === "BOOKED" } // блокируем если место занято или идёт запрос
+        checked={state === "IN_CART"} // состояние зависит только от сервера
         onChange={handleChange}
       />
     </div>
