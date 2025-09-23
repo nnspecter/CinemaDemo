@@ -3,10 +3,10 @@ import styles from "./SubmitButton.module.scss"
 import { useSeansStore } from '../../../store/useSeansStore'
 import { Button } from '@mui/material';
 const SubmitButton = () => {
-  const {handleOrder} = useSeansStore();
+  const {handleOrder, getSeans, clearSeans, seansID} = useSeansStore();
   return (
     <div className={styles.SubmitButton}>
-        <Button onClick={handleOrder}>ПРИОБРЕСТИ ВЫБРАННОЕ</Button>
+        <Button onClick={() => {handleOrder(); if(seansID){getSeans(seansID)}}}>ПРИОБРЕСТИ ВЫБРАННОЕ</Button>
     </div>
   )
 }
