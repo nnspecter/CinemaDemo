@@ -10,7 +10,7 @@ const RightPanel = () => {
         <Link href="/cart">
             <IoCartOutline className={styles.CartImg}/>
         </Link>
-        <Link href="/auentification">
+        <Link href="/authentication">
             <CgProfile className={styles.ProfileImg}/>
         </Link>
     </div>

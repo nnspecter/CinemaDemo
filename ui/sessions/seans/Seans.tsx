@@ -7,7 +7,7 @@ import SeansButton from './seansButton/SeansButton';
 
 const Seans = () => {
   const {sits, loading, error} = useSeansStore();
-  if(loading || !sits) return <div className='loadingLow'><Loading/></div>
+  if(loading || !sits) return <div className='loadingSessions'><Loading/></div>
   return (
     <div className={styles.seans}>
       

@@ -9,6 +9,7 @@ import Loading from "../../ui/loading/Loading";
 import FilmSessions from "../../ui/sessions/FilmSessions";
 import { useFilmStore } from "../../store/useFilmStore";
 import { useSeansStore } from "../../store/useSeansStore";
+import Recomendations from "../../ui/Recomendations/Recomendations";
 
 
 const FilmPage = () => {
@@ -39,6 +40,7 @@ const FilmPage = () => {
         <>
         <FilmPropertyes/>
         <FilmSessions/>
+        <Recomendations/>
         </>
       ) : (
         <div className="Loading"><Loading/></div>

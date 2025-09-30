@@ -16,7 +16,7 @@ const News = () => {
         slidesPerView={1}
         modules={[Autoplay]} 
         autoplay={{
-          delay: 6000, // каждые 3 секунды
+          delay: 9000, // каждые 3 секунды
           disableOnInteraction: false, // не останавливать при ручном свайпе
         }}
         loop={true}

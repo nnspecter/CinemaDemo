@@ -38,7 +38,7 @@ const FilmSessions = () => {
     
   return (
     <div className={styles.sessions}>
-         <ToggleButtonGroup
+        <ToggleButtonGroup
             value={sessionId}
             exclusive
             onChange={handleAlignment}
@@ -51,8 +51,11 @@ const FilmSessions = () => {
             
          </ToggleButtonGroup>
          
-         <Seans/>
+         <div className={styles.buttons}>
+          <Seans/>
+         </div>
          <SubmitButton/>
+      
     </div>
   )
 }

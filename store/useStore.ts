@@ -22,6 +22,7 @@ interface State {
 
 export const useStore = create<State>((set, get) => ({
   object: null,
+  recomendations: null,
   loading: false,
   error: null,
 
