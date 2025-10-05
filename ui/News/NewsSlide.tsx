@@ -1,5 +1,6 @@
 import React from 'react'
 import styles from "./NewsSlide.module.scss"
+import { useBasePath } from '../../hooks/useBasePath';
 interface NewsSlideProps{
     img: string;
     title: string;
@@ -7,9 +8,10 @@ interface NewsSlideProps{
 }
 
 const NewsSlide : React.FC <NewsSlideProps> = ({img, title, desc}) => {
+  const prefix = useBasePath();
   return (
     <div className={styles.NewsSlide}>
-        <img src={img}/>
+        <img src={`${prefix}${img}`}/>
         <div className={styles.title}>
             {title}
         </div>

@@ -12,11 +12,30 @@ import styles from "./Recomendations.module.scss"
 import { useFilmStore } from '../../store/useFilmStore';
 
 const Recomendations = () => {
+
+    interface Movie {
+        id: number | string;
+        name: string;
+        genre: string;
+        posterUrlPreview: string | null;
+        posterUrl: string;
+        duration: number;
+        year: number;
+        sessions: any
+        description: string;
+    }
+
     const {object} = useStore(); 
     const {film} = useFilmStore();
+    const[recomendations, setRecomendations] = useState<null | Movie[]>(null);
+
     useEffect (()=> {
-    }, [])
-  return (
+        if(film && object ){setRecomendations(object.data.filter(item => item.genre.toLowerCase().includes(film.genre.toLowerCase())))}
+    }, [film])
+    console.log(` После фильтра ${recomendations}`)  
+    console.log(` До фильтра  ${object?.data}`)
+
+    return (
     <div className={styles.recomendations}>
         <Swiper spaceBetween={20}
             slidesPerView={"auto"}
@@ -26,8 +45,9 @@ const Recomendations = () => {
                 delay: 6000, // каждые 3 секунды
                 disableOnInteraction: false, // не останавливать при ручном свайпе
             }}
+            style={{ paddingTop: "10px" }}
             >
-        {object != null ? (object.data.map((el)=>(
+        {recomendations ? (recomendations.map((el)=>(
                 <SwiperSlide style={{ width: "200px" }}>
                     <div key={`баннер - ${el.id}` }>
                         <FilmCard id={el.id} name={el.name} posterUrlPreview={el.posterUrlPreview} posterUrl={el.posterUrl} duration={el.duration} sessions={el.sessions} description={el.description}/>

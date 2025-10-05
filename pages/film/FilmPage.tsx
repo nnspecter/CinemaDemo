@@ -10,7 +10,8 @@ import FilmSessions from "../../ui/sessions/FilmSessions";
 import { useFilmStore } from "../../store/useFilmStore";
 import { useSeansStore } from "../../store/useSeansStore";
 import Recomendations from "../../ui/Recomendations/Recomendations";
-
+import RecPanel from "../../ui/Recomendations/RecPanel";
+import styles from "./FilmPage.module.scss"
 
 const FilmPage = () => {
     const router =useRouter();
@@ -37,11 +38,12 @@ const FilmPage = () => {
   return (
     <div>
       {film ? (
-        <>
+        <div className={styles.FilmPage}>
         <FilmPropertyes/>
         <FilmSessions/>
+        <RecPanel/>
         <Recomendations/>
-        </>
+        </div>
       ) : (
         <div className="Loading"><Loading/></div>
       )}
