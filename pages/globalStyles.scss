@@ -1,0 +1,52 @@
+/* Глобальные стили (reset) */
+* {
+  margin: 0;
+  padding: 0;
+  gap: 0;
+  box-sizing: border-box; /* чтобы padding и border входили в ширину/высоту */
+  user-select: none;
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* указываем отступ сверху для всех секций */
+section {
+  scroll-margin-top: 80px; /* высота твоего header */
+}
+
+
+
+p,
+a {
+  font-size: 16px;   /* как у p */
+  line-height: 1.5;  /* как у p */
+  color: #ececec;       /* цвет текста */
+  font-family: Arial, sans-serif;
+  text-decoration: none; /* убираем подчёркивание у ссылок */
+}
+.Loading, .loadingLow{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  max-width: 100%;
+  padding-top: 100px;
+  padding-bottom: 100px;
+  gap: 5px
+}
+.loadingLow{
+  padding-bottom: 25px;
+  padding-top: 25px;
+}
+.loadingSessions{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height : 229px;
+}
+body{
+  background-color: rgb(37, 37, 37);
+}

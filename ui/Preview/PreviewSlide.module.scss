@@ -1,0 +1,42 @@
+.previewSlide{
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
+  .prewiewImage{
+    position: absolute; 
+    width: 100%;
+    height: 400px;
+    z-index: -1;
+    inset: 0;
+    .img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+      filter: brightness(70%);
+    }
+
+  }
+  .onImageBlock{
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding-right: 16px;
+    align-items: center;
+    gap: 30px;
+    margin-top: 70px;
+    
+    .text{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        color: azure;
+        max-width: 400px;
+        filter: drop-shadow(4px 4px 8px rgba(34, 60, 80, 0.2));
+    }
+    img{
+            max-width: 200px;
+            border-radius: 12px;
+            
+        }
+  }
+}

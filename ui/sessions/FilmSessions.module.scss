@@ -1,0 +1,10 @@
+.sessions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding-top: 40px;
+    .buttons{
+        max-height: 300px;
+    }
+}

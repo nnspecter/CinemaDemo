@@ -1,0 +1,19 @@
+.seans{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    .row{
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        
+    }
+    .screen{
+        width: 100%;
+        max-width: 150px;
+        height: 10px;
+        background-color: rgb(98, 99, 97);
+    }
+    padding: 20px;
+}
+

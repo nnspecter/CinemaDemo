@@ -1,0 +1,66 @@
+.filmPropertyesContent{
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    gap: 20px;
+    padding-top: 10px;
+    padding-left: 2%;
+    padding-right: 2%;
+    height: 340px;
+    width: 100%;
+    .block1{
+        img{
+            max-width: 240px;
+            max-height: 320px;
+            border-radius: 20px;
+        }
+    }
+    .block2{
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        justify-content: center;
+        .name{
+            font-size: 18pt;
+            font-weight: bold;
+        }
+        .year{
+            display: flex;
+            gap: 3px;
+        }
+        .genre{
+            display: flex;
+            gap: 3px;
+        }
+        .duration{
+            display: flex;
+            gap: 3px;
+        }
+        .description{
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            gap: 3px;
+        
+        }
+        h3{
+            font-size: 12pt;
+            font-weight: bold;
+        }
+    }
+    
+}
+
+.imgBackground {
+        
+        img{
+            max-height: 340px; 
+            position: absolute;
+            z-index: -3;
+            width: 100%;
+            object-fit: cover;      /* картинка зальёт весь блок */
+            background-position: center; /* центрируем */
+            background-repeat: no-repeat; /* без повторов */
+            opacity: 0.3;      
+        }
+    }
