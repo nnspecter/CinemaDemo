@@ -7,7 +7,7 @@ import { axiosApi } from "./axiosApi"
 export const useReserve = () => {
     return useMutation({
         mutationFn: (id: string) => axiosApi.post("sit/reserve", {id}),
-        onSuccess: ()=> queryClient.invalidateQueries({queryKey: queryKeys.seans}),
+        onSuccess: (_data, id)=> queryClient.invalidateQueries({queryKey: [queryKeys.seans]}),
         onError: (error) => console.error("Ошибка мутации резерва:", error)
     })
 }
@@ -15,7 +15,7 @@ export const useReserve = () => {
 export const useUnReserve = () => {
     return useMutation({
         mutationFn: (id: string) => axiosApi.delete(`sit/cancel/${id}`),
-        onSuccess: ()=> queryClient.invalidateQueries({queryKey: queryKeys.seans}),
+        onSuccess: (_data, id)=> queryClient.invalidateQueries({queryKey: [queryKeys.seans]}),
         onError: (error) => console.error("Ошибка отмены резерва:", error)
     })
 }
@@ -23,7 +23,7 @@ export const useUnReserve = () => {
 export const useOrder = () => {
     return useMutation({
         mutationFn: () => axiosApi.post(`post/order`),
-        onSuccess: ()=> queryClient.invalidateQueries({queryKey: queryKeys.seans}),
+        onSuccess: ()=> queryClient.invalidateQueries({queryKey: [queryKeys.seans]}),
         onError: (error) => console.error("Ошибка заказа:", error),
     })
 }

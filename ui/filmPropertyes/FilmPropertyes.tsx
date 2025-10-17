@@ -1,14 +1,11 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./filmPropertyes.module.scss"
-import { useFilmStore } from "../../store/useFilmStore";
-import Image from 'next/image';
-import { useFilmQuery } from '../../api/queries';
-import { useIdStore } from '../../store/useIdStore';
+
 
 
 const FilmPropertyes = ({film}) => {
 
-    console.log(`Данные ${film}`)
+    console.log("Данные", film)
 
   return (
     <div className={styles.filmPropertyes}>

@@ -10,8 +10,8 @@ filmId: null,
 sessionId: null,
 setFilmId: (id) =>{
     set({filmId: id});
-
 },
+
 setSessionid: (id) => {
     set({sessionId: id});
 },

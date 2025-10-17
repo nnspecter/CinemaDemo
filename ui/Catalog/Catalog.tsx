@@ -8,7 +8,7 @@ import { useCatalogQuery } from "../../api/queries";
 const Catalog = () => {
   const {data, isLoading, error} = useCatalogQuery();
 
-  if (isLoading) return <div className="Loading"><Loading/>Загрузка...</div>;
+  if (isLoading || !data) return <div className="Loading"><Loading/>Загрузка...</div>;
   if (error) return <p>Ошибка: {error.message}</p>;
     return (
         <div className={styles.catalog}>

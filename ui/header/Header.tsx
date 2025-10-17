@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react'
 import styles from "./Header.module.scss"
 import { Link } from "react-scroll";
-import { CgProfile } from "react-icons/cg";
 import RightPanel from './rightMenu/RightPanel';
 
 

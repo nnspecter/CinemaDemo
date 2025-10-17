@@ -19,12 +19,12 @@ const FilmPage = () => {
   const intId = idParam ? parseInt(Array.isArray(idParam) ? idParam[0] : idParam) : 1;
   
   useEffect(() => {
-  if (intId) setFilmId(intId);
-}, [intId, setFilmId]);
+    if (intId) setFilmId(intId);
+  }, [intId]);
 
-  const { data: film, isLoading } = useFilmQuery(intId);
+  const { data: film, isLoading } = useFilmQuery(filmId ?? 0);
 
-  if (isLoading) return <div className="Loading"><Loading /></div>;
+  if (isLoading || !film) return <div className="Loading"><Loading /></div>;
 
   return (
     <div className={styles.FilmPage}>
@@ -33,7 +33,7 @@ const FilmPage = () => {
     ) : (
       <>
         <FilmPropertyes film={film.data}/>  
-        <FilmSessions/>
+        <FilmSessions sessions={film.data.sessions}/>
         <RecPanel/>
         <Recomendations/>
       </>

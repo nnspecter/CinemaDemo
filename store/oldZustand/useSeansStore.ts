@@ -48,6 +48,7 @@ export const useSeansStore = create<Seans>((set) => ({
   handleReserve: async (id: string) => {
     try {
       const response = await api.post("/sit/reserve", { id });
+      console.log(api.defaults.headers, {id})
       console.log("Ответ сервера post", response);
     } catch (err) {
       console.error("Ошибка handleReserve: ", err);

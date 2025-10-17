@@ -1,7 +1,6 @@
-import { FormControlLabel, FormGroup, Switch } from '@mui/material'
+import { FormGroup, Switch } from '@mui/material'
 import React from 'react'
 import { alpha, styled } from '@mui/material/styles';
-import { pink } from '@mui/material/colors'
 const SwitchData = () => {
   const RedSwitch = styled(Switch)(({ theme }) => ({
   '& .MuiSwitch-switchBase.Mui-checked': {

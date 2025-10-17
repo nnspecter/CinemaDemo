@@ -5,11 +5,10 @@ import { Autoplay } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-import PreviewSlide from '../Preview/PreviewSlide';
-import { useStore } from '../../store/useStore';
+import { useStore } from '../../store/oldZustand/useStore';
 import FilmCard from '../Catalog/Card/Card';
 import styles from "./Recomendations.module.scss"
-import { useFilmStore } from '../../store/useFilmStore';
+import { useFilmStore } from '../../store/oldZustand/useFilmStore';
 
 const Recomendations = () => {
 

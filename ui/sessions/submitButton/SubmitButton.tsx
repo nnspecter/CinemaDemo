@@ -1,19 +1,24 @@
 import React, { useState } from 'react'
 import styles from "./SubmitButton.module.scss"
-import { useSeansStore } from '../../../store/useSeansStore'
 import { Button } from '@mui/material';
-const SubmitButton = () => {
+import { useOrder } from '../../../api/mutations';
+interface SubmitButton{
+  handleLoading: (loading: boolean) => void
+}
+const SubmitButton = ({handleLoading}) => {
   const [loading, setLoading] = useState(false);
-  const {handleOrder, getSeans, clearSeans, seansID} = useSeansStore();
+  const orderMutation = useOrder();
+
   const handleClick = async () => {
     try{
-      setLoading(true);
-      await handleOrder();
-      if(seansID) await getSeans(seansID)
-      setLoading(false)
+      handleLoading(true);
+      await orderMutation.mutateAsync();
     }
     catch(err){
-      console.log("Кнопка сдохла", err.message)
+      console.log("Кнопка сдохла", err.message);
+    }
+    finally{
+      handleLoading(false);
     }
   }
   return (
