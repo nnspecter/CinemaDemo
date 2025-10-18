@@ -7,7 +7,7 @@ const RecPanel = () => {
     <div className={styles.sort}>
       <img src={`${prefix}/images/Sort/AbstractBack.jpg`}></img>
       <div className={styles.RecPanel}>
-          РЕКОМЕНДАЦИИ ПО ЖАНРУ
+          РЕКОМЕНДАЦИИ ПО ЖАНРAM
       </div>
     </div>
   )

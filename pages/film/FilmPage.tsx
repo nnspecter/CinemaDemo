@@ -35,7 +35,7 @@ const FilmPage = () => {
         <FilmPropertyes film={film.data}/>  
         <FilmSessions sessions={film.data.sessions}/>
         <RecPanel/>
-        <Recomendations/>
+        <Recomendations genre = {film.data.genre} filmId={film.data.id}/>
       </>
     )}
   </div>

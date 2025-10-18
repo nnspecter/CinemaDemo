@@ -9,10 +9,12 @@ import { useStore } from '../../store/oldZustand/useStore';
 import FilmCard from '../Catalog/Card/Card';
 import styles from "./Recomendations.module.scss"
 import { useFilmStore } from '../../store/oldZustand/useFilmStore';
-
-const Recomendations = () => {
-
-    interface Movie {
+import { useCatalogQuery } from '../../api/queries';
+interface RecomendationsProps {
+    genre: string;
+    filmId: number;
+}
+interface Movie {
         id: number | string;
         name: string;
         genre: string;
@@ -23,16 +25,29 @@ const Recomendations = () => {
         sessions: any
         description: string;
     }
+const Recomendations = ({genre, filmId} : RecomendationsProps) => {
 
-    const {object} = useStore(); 
-    const {film} = useFilmStore();
-    const[recomendations, setRecomendations] = useState<null | Movie[]>(null);
+    
+    
+    const {data: object} = useCatalogQuery();
+
+
+    const[recomendations, setRecomendations] = useState<null | any>(null);
 
     useEffect (()=> {
-        if(film && object ){setRecomendations(object.data.filter(item => item.genre.toLowerCase().includes(film.genre.toLowerCase())))}
-    }, [film])
-    console.log(` После фильтра ${recomendations}`)  
-    console.log(` До фильтра  ${object?.data}`)
+        //if( object?.data ){setRecomendations((object.data.filter(item => item.genre.split(",").includes(genre.split(","))).filter(item => item.id !== filmId)))}
+        if( object?.data ){
+            setRecomendations((object.data.filter(item => {
+                const itemGenres = item.genre.split(",").map(g => g.trim());
+                const currentGenres = genre.split(",").map(g => g.trim());
+                return itemGenres.some(g =>currentGenres.includes(g));
+            }
+            ).filter(item => item.id !== filmId)))}
+    }, [object])
+
+     console.log(genre)
+    console.log("До фильтра", object?.data)
+    console.log("После фильтра", recomendations) 
 
     return (
     <div className={styles.recomendations}>

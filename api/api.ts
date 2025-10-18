@@ -3,7 +3,7 @@ import { axiosApi } from "./axiosApi";
 
 //catalog movie
 interface Movie {
-  id: number | string;
+  id: number;
   name: string;
   genre: string;
   posterUrlPreview?:string;
