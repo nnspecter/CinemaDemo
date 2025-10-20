@@ -26,7 +26,7 @@ const Seans = ({sits, loading}) => {
       ))}
   ЭКРАН
   <div className={styles.screen}> </div>
-  <SubmitButton handleLoading={handleLoading}/>
+  <SubmitButton handleLoading={handleLoading} sits={sits}/>
 </div>
   );
 
