@@ -19,6 +19,7 @@ const NewsSlide : React.FC <NewsSlideProps> = ({img, title, desc, imgBackground}
         <div className={styles.description}>
             {desc}
         </div>
+        
     </div>
   )
 }
